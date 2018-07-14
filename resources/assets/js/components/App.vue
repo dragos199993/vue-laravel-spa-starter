@@ -2,9 +2,7 @@
 	<div>
 		<main-header></main-header>
 
-		<transition name="fade" mode="out-in">
-			<router-view></router-view>
-		</transition>
+		<router-view></router-view>
         
 		<main-footer></main-footer>
 	</div>

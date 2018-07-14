@@ -6,7 +6,7 @@
                     <div class="card-header">Example Component</div>
 
                     <div class="card-body">
-                        I'm an example component.
+                        {{ welcome }}
                     </div>
                 </div>
             </div>
@@ -18,6 +18,11 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        computed: {
+            welcome(){
+                return this.$store.getters.welcome;
+            }
         }
     }
 </script>
