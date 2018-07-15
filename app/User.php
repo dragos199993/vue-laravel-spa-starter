@@ -18,7 +18,10 @@ class User extends Authenticatable implements JWTSubject
     protected $fillable = [
         'name', 'email', 'password',
     ];
-
+    
+    public function messages() {
+        return $this->hasMany(Message::class)->latest();
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

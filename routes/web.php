@@ -12,6 +12,6 @@
 */
 
 
-Route::get('{path}', function () {
-    return view('welcome');
-})->where( 'path', '([A-z\d-\/_.]+)?' );
+Route::get('/{vue_capture?}', function () {
+    return view('main');
+ })->where('vue_capture', '^(?!storage).*$'); 
