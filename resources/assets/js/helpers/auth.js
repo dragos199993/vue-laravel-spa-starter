@@ -10,14 +10,15 @@ export function login(credentials){
     });
 }
 
+
 export function register(credentials){
     return new Promise((res, rej) => {
-        axios.post('/api/auth/login', credentials)
+        axios.post('/api/auth/register', credentials)
             .then( response => {
                 res(response.data);
             })
             .catch( err => {
-                rej("Something wrong happened during login");
+                rej("Something wrong happened during register");
             });
     });
 }

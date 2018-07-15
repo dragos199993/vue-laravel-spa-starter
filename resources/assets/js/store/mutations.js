@@ -3,6 +3,10 @@ export default {
         state.loading = true;
         state.auth_error = null;
     },
+    register(state) {
+        state.loading = true;
+        state.auth_error = null;
+    },
     loginSuccess(state, payload) {
         state.loading = false;
         state.auth_error = null;
@@ -19,13 +23,8 @@ export default {
     logout(state) {
         state.loading = false;
         state.isLoggedIn = false;
-        localStorage.removeItem("user");
         state.currentUser = null;
-    },
-    register(state) {
-        state.loading = true;
-        state.auth_error = null;
-        console.log("trying to register");
+        localStorage.removeItem("user");
     },
     populateUserList(state, payload){
         state.userList = payload;

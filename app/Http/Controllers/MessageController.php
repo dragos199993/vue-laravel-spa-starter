@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Message;
 use JWTAuth;
-use Illuminate\Support\Facades\Log;
 
 class MessageController extends Controller
 {

@@ -4,7 +4,7 @@
     
         <ul class="list-group col-sm-6 offset-sm-3 mt-1">
                 <li v-for="message in messages" class="list-group-item" :key="message.id">
-                    Name: <a :href="message.email">{{message.name }}</a>, 
+                    Name: <router-link :to="{path: '/users/' + message.email}">{{ message.name }}</router-link>, 
                     Created at: {{ message.created_at }}
                 </li>
         </ul>

@@ -44,7 +44,7 @@
 </style>
 
 <script>
-    import { login } from '../../helpers/auth.js';
+    import { register } from '../../helpers/auth.js';
     export default{ 
         data: () => ({
             state:{
@@ -53,12 +53,18 @@
                 password: '',
                 password_confirm: ''
             },
+            errors: '',
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         }),
         methods: {
             register() {
-                this.$store.dispatch('login');
-                login(this.state)
+                this.$store.dispatch('register');
+                const user = {
+                    'name': this.state.name,
+                    'email': this.state.email,
+                    'password': this.state.password
+                }
+                register(user)
                     .then( res => {
                         this.$store.commit('loginSuccess', res);
                         this.$router.push({path: "/"});

@@ -21,9 +21,6 @@
 <script>
     import { list } from '../../helpers/data.js';
     export default {
-        // mounted(){
-        //     this.$store.dispatch('getMessages');
-        // },
         data(){
             return{
                 content: '',
@@ -45,7 +42,7 @@
                     }})
                     .catch(err => this.log = {
                         message: 'Oops! Message not send. Something went wrong.',
-                        type: 'alert alert-error'
+                        type: 'alert alert-danger'
                         });
                 this.content = '';
             }

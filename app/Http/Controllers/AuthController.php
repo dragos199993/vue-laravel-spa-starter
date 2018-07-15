@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -32,6 +34,17 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
+    public function register(Request $request)
+    {
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        Log::info($user);
+        $user->save();
+        // all good so return the token
+        return response()->json($this->setResponse());
+    }
     /**
      * Get the authenticated User.
      *

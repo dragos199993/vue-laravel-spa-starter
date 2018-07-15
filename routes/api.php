@@ -17,15 +17,16 @@ Route::group([
     'prefix' => 'auth'
 ], function ($router) {
     Route::post('login', 'AuthController@login');
+    Route::post('register', 'AuthController@register');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
 });
 
-Route::get('users', 'UserController@listRaw');
 Route::group([
     'middleware' => 'jwt.auth'
 ], function ($router) {
+    Route::get('users', 'UserController@listRaw');
     Route::get('/{email}', 'UserController@reveal');
     Route::post('/new', 'MessageController@new');
 });

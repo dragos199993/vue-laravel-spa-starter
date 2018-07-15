@@ -12,7 +12,9 @@ export default {
             axios
                 .post("/api/new", {
                     'content': payload
-                }, {headers: {"Authorization": `Bearer ${context.state.currentUser.token}`}})
+                }, { headers: {
+                    "Authorization": `Bearer ${context.state.currentUser.token}`
+                }})
                 .then(res => resolve(res))
                 .catch(err => reject(err));
         });

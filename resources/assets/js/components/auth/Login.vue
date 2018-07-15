@@ -9,7 +9,7 @@
                 <div class="col-sm-6 offset-sm-3 mt-5">
                     <div class="text-center">
                             <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-                            <form @submit.prevent="login" method="POST" class="mt-5 pt-5 form-signin">
+                            <form @submit.prevent="authenticate" method="POST" class="mt-5 pt-5 form-signin">
                                 <div class="alert alert-danger" role="alert" v-if="authError">
                                     {{ authError }}
                                 </div>
@@ -48,7 +48,7 @@
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
         }),
         methods: {
-            login() {
+            authenticate() {
                 this.$store.dispatch('login');
                 login(this.state)
                     .then( res => {
